@@ -193,9 +193,9 @@ impl SessionHandle {
     /// ```
     pub async fn goto(&self, url: impl IntoArcStr) -> WebDriverResult<()> {
         let mut url = url.into();
-        if !url.starts_with("http") {
-            url = format!("https://{url}").into();
-        }
+        //if !url.starts_with("http") {
+        //    url = format!("https://{url}").into();
+        //}
         self.cmd(Command::NavigateTo(url)).await?;
         Ok(())
     }

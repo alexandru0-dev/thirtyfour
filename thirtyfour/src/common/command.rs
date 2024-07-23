@@ -496,6 +496,7 @@ impl FormatRequestData for Command {
                     }))
             }
             Command::PrintPage(params) => {
+                println!("session_id: {session_id:?}");
                 RequestData::new(Method::POST, format!("/session/{}/print", session_id))
                     .add_body(serde_json::to_value(params).expect("DioCane"))
             }
